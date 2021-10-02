@@ -230,8 +230,6 @@ class SwipeablePanel extends React.Component<
     this.setState({
       showComponent: true,
       status: newStatus,
-    }, () => {
-      this.props.onChangeStatus?.(this.state.status);
     });
 
     Animated.spring(this.state.pan, {
@@ -242,6 +240,8 @@ class SwipeablePanel extends React.Component<
       restDisplacementThreshold: 10,
       restSpeedThreshold: 10,
     }).start(() => {
+      this.props.onChangeStatus?.(newStatus);
+
       if (newStatus === 0) {
         if (this.props.onClose) this.props.onClose();
         this.setState({

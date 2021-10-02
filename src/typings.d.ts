@@ -5,6 +5,7 @@
 
 import * as React from 'react';
 import { ScrollViewProps } from 'react-native';
+import { STATUS } from "./Panel";
 
 declare interface SwipeablePanelProps extends React.Props<SwipeablePanel> {
   /**
@@ -88,6 +89,8 @@ declare interface SwipeablePanelProps extends React.Props<SwipeablePanel> {
    * You can pass your scroll view props
    */
   scrollViewProps?: ScrollViewProps;
+
+  onChangeStatus?: (status: STATUS) => void;
 }
 
 declare class SwipeablePanel extends React.Component<
